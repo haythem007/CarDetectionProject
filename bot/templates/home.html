@@ -1,0 +1,147 @@
+<html>
+	<head>
+			<meta charset="UTF-8">
+			{% load static %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="{% static 'assets/js/1.js'%}"></script>
+<link href="{% static 'assets/css/css1.css' %}" rel="stylesheet" />
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+<div class="image-container set-full-height" style="background-image: url({% static 'assets/img/city.jpg' %})">
+	<div class="row">
+        <div class="round hollow text-center">
+        <a href="#" id="addClass"><span class="glyphicon glyphicon-comment"></span> Open in chat </a>
+        </div>
+        
+        <br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				<br><br>
+				
+        
+       
+         
+	</div>
+
+
+
+<div class="popup-box chat-popup" id="qnimate" style="background-image: url({% static 'assets/img/wizard.jpg' %})">
+    		  <div class="popup-head">
+				<div class="popup-head-left pull-left"><img alt="iamgurdeeposahan"> HaythemBot </div>
+					  <div class="popup-head-right pull-right">
+					
+						
+						<button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-off"></i></button>
+                      </div>
+			  </div>
+			<div class="popup-messages">
+    		
+			
+			
+			
+			<div class="direct-chat-messages">
+                    
+					
+					<div class="chat-box-single-line">
+								<abbr class="timestamp"><script>
+										document.write(new Date().getFullYear())
+									</script></abbr>
+					</div>
+					
+					
+			
+               
+					
+                    
+
+                    
+
+      </div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</div>
+			<div class="popup-messages-footer">
+			<textarea id="status_message" placeholder="Type a message..." rows="10" cols="40" name="message"></textarea>
+			<div class="btn-footer">
+			
+			</div>
+			</div>
+		</div>
+	</div>
+		<script>
+		$("#status_message").keypress((e)=>{
+      if(e.charCode==13){
+			data =	$("#status_message").val();
+				$(`<div class="direct-chat-msg doted-border">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">{{ user.username }}</span>
+                      </div>
+                      <!-- /.direct-chat-info -->
+											<img alt="message user image" class="direct-chat-img"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+												
+											      ${data}
+											 
+                      </div>
+					            <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-timestamp pull-right">  </span>
+                      </div>
+						
+                      <!-- /.direct-chat-text -->
+                    </div>`).appendTo(".direct-chat-messages");
+									
+				$.get("http://localhost:8000/bott/?message="+$("#status_message").val(),(e)=>{
+         $(`<div class="direct-chat-msg doted-border">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">bot</span>
+                      </div>
+                      <!-- /.direct-chat-info -->
+                      <img alt="iamgurdeeposahan" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Gnome-stock_person_bot.svg/1024px-Gnome-stock_person_bot.svg.png" class="direct-chat-img"><!-- /.direct-chat-img -->
+                      <div class="direct-chat-text">
+										
+											      ${e}
+											 
+                      </div>
+					           <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-timestamp pull-right">3.36 PM</span>
+                      </div>
+						
+                      <!-- /.direct-chat-text -->
+                    </div>`).appendTo(".direct-chat-messages");
+$("#status_message").val("");
+
+
+				})
+			}
+
+
+		})
+		
+		
+		
+		</script>
+</body>
+</html>
+
+
+	
